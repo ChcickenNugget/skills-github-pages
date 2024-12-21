@@ -13,7 +13,7 @@ const prevButton = document.getElementById('prev-btn');
 const nextButton = document.getElementById('next-btn');
 
 let currentIndex = 0;
-let slidesToShow = 5; // Domyślnie 5 zdjęć na raz
+const slidesToShow = 5; // Liczba zdjęć na raz
 
 // Funkcja ustawiania przesunięcia
 function setSlidePosition(index) {
@@ -21,18 +21,6 @@ function setSlidePosition(index) {
     const offset = -index * slideWidth;
     track.style.transform = `translateX(${offset}px)`;
 }
-
-// Funkcja, która dynamicznie ustawia liczbę zdjęć wyświetlanych na ekranie
-const updateSlidesToShow = () => {
-    const width = window.innerWidth;
-    if (width <= 480) {
-        slidesToShow = 2; // 2 zdjęcia na telefonach
-    } else if (width <= 768) {
-        slidesToShow = 2; // 2 zdjęcia na tabletach
-    } else {
-        slidesToShow = 5; // 5 zdjęć na komputerach
-    }
-};
 
 // Obsługa przycisku "następny"
 nextButton.addEventListener('click', () => {
@@ -53,16 +41,7 @@ prevButton.addEventListener('click', () => {
 // Inicjalizacja pozycji
 setSlidePosition(currentIndex);
 
-// Aktualizacja liczby zdjęć na stronie po zmianie rozmiaru okna
-window.addEventListener('resize', () => {
-    updateSlidesToShow();
-    setSlidePosition(currentIndex); // Dopasuj pozycję po zmianie rozmiaru
-});
-
-// Na początek ustawiamy odpowiednią liczbę zdjęć na podstawie rozmiaru okna
-updateSlidesToShow();
-
-// Mechanizm lightboxa (powiększania zdjęcia po kliknięciu)
+// Mechanizm lightboxa
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxDescription = document.getElementById('lightbox-description');
