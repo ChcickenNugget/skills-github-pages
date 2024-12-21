@@ -160,3 +160,33 @@ h1 {
     border: 1px solid #ff69b4;
     margin: 30px 0;
 }
+
+/* Media Queries */
+
+/* Na ekranach powyżej 1200px, 5 zdjęć na ekranie */
+@media screen and (min-width: 1200px) {
+    .carousel-slide {
+        min-width: 20%; /* 5 zdjęć na ekranie */
+    }
+}
+
+/* Na ekranach od 768px do 1200px, 4 zdjęcia na ekranie */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    .carousel-slide {
+        min-width: 25%; /* 4 zdjęcia na ekranie */
+    }
+}
+
+/* Na ekranach od 480px do 768px, 2 zdjęcia na ekranie */
+@media screen and (max-width: 768px) and (min-width: 480px) {
+    .carousel-slide {
+        min-width: 50%; /* 2 zdjęcia na ekranie */
+    }
+}
+
+/* Na telefonach do 480px, 2 zdjęcia na ekranie */
+@media screen and (max-width: 480px) {
+    .carousel-slide {
+        min-width: 50%; /* 2 zdjęcia na ekranie */
+    }
+}
