@@ -1,5 +1,5 @@
 // Mechanizm ochrony hasłem
-const password = "tajnehaslo"; // Ustaw hasło
+const password = "MrsClaus"; // Ustaw hasło
 let userInput = prompt("Wpisz hasło, aby wejść na stronę:");
 if (userInput !== password) {
     document.write("<h1>Błędne hasło!</h1>");
