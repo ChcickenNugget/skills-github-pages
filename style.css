@@ -53,7 +53,7 @@
 }
 
 .carousel-slide {
-    min-width: 20%; /* 5 zdjęć na raz na dużych ekranach */
+    min-width: 20%; /* 5 zdjęć na raz */
     box-sizing: border-box;
     padding: 10px;
 }
@@ -115,25 +115,15 @@
 }
 
 /* Media Queries */
-
-/* Na większych ekranach - 2 strony karuzeli z 5 zdjęciami */
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .carousel-slide {
-        min-width: 20%; /* 5 zdjęć na raz */
+        min-width: 25%; /* Na większych ekranach 4 zdjęcia na raz */
     }
 }
 
-/* Na średnich ekranach - 2 strony karuzeli z 4 zdjęciami */
-@media screen and (max-width: 1200px) and (min-width: 768px) {
-    .carousel-slide {
-        min-width: 25%; /* 4 zdjęcia na raz */
-    }
-}
-
-/* Na mniejszych ekranach - 5 stron z 2 zdjęciami */
 @media screen and (max-width: 768px) {
     .carousel-slide {
-        min-width: 50%; /* 2 zdjęcia na raz */
+        min-width: 50%; /* Na tabletach 2 zdjęcia na raz */
     }
 
     .carousel-btn {
@@ -143,10 +133,9 @@
     }
 }
 
-/* Na telefonach - 5 stron z 2 zdjęciami */
 @media screen and (max-width: 480px) {
     .carousel-slide {
-        min-width: 50%; /* 2 zdjęcia na raz */
+        min-width: 100%; /* Na telefonach jedno zdjęcie na raz */
     }
 
     .carousel-btn {
@@ -160,8 +149,22 @@
     }
 }
 
+/* Pozycja strzałek */
+.carousel-btn.prev {
+    left: 10px; /* Zmniejszono margines z lewej strony */
+}
 
+.carousel-btn.next {
+    right: 10px; /* Zmniejszono margines z prawej strony */
+}
 
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Kolor strzałek po najechaniu */
+}
+
+.carousel-btn:focus {
+    outline: none;
+}
 
 /* Stylizacja linii dzielącej */
 .divider {
@@ -174,19 +177,44 @@
     text-align: center;
     font-size: 18px;
     padding: 20px;
-    background-color:white;
+    background-color: white;
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Stylizacja nagłówka */
-header {
-    background-color: #ff69b4;
-    color: white;
-    padding: 20px;
+/* Kontener na muzykę */
+.music-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px; /* Maksymalna szerokość dla lepszej responsywności */
+    margin-top: 20px;
+}
+
+/* Odtwarzacze muzyki */
+.music-player {
+    width: 45%;
     text-align: center;
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.5em;
+/* Stylizacja dla elementów audio */
+audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+/* Pozycjonowanie elementów na mniejszych ekranach */
+@media screen and (max-width: 768px) {
+    .music-container {
+        flex-direction: column; /* Na mniejszych ekranach wyświetlaj odtwarzacze w pionie */
+        align-items: center;
+    }
+
+    .music-player {
+        width: 80%; /* Na mniejszych ekranach odtwarzacze będą szersze */
+        margin-bottom: 20px;
+    }
 }
