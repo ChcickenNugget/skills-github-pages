@@ -39,11 +39,12 @@
     position: relative;
     max-width: 1000px;
     margin: 0 auto;
-    overflow: hidden; /* Ukrywa nadmiar zdjęć */
+    overflow: hidden;
 }
+
 .carousel-track-container {
     position: relative;
-    overflow: hidden; /* Ukrywa nadmiar zdjęć */
+    overflow: hidden;
     width: 100%;
 }
 
@@ -68,7 +69,7 @@
     font-size: 14px;
     color: #555;
     margin-top: 5px;
-    display: none; /* Ukryj podpisy domyślnie */
+    display: none;
 }
 
 /* Pokaż podpisy po najechaniu */
@@ -81,95 +82,36 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 105, 180, 0.4); /* Różowe kółko z przezroczystością */
+    background-color: rgba(255, 105, 180, 0.4);
     color: white;
     border: none;
     cursor: pointer;
     font-size: 2rem;
     padding: 15px;
     z-index: 100;
-    border-radius: 50%; /* Kółkowy kształt */
-    width: 50px;  /* Szerokość kółka */
-    height: 50px; /* Wysokość kółka */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Pozycja strzałek */
 .carousel-btn.prev {
-    left: 10px; /* Zmniejszono margines z lewej strony */
+    left: 10px;
 }
 
 .carousel-btn.next {
-    right: 10px; /* Zmniejszono margines z prawej strony */
+    right: 10px;
 }
 
 .carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Kolor strzałek po najechaniu */
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-btn:focus {
     outline: none;
-}
-
-/* Media Queries */
-@media screen and (max-width: 1200px) {
-    .carousel-slide {
-        min-width: 25%; /* Na większych ekranach 4 zdjęcia na raz */
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .carousel-slide {
-        min-width: 50%; /* Na tabletach 2 zdjęcia na raz */
-    }
-
-    .carousel-btn {
-        width: 40px; /* Mniejsze strzałki na mniejszych ekranach */
-        height: 40px;
-        font-size: 1.5rem; /* Mniejszy rozmiar strzałek */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .carousel-slide {
-        min-width: 100%; /* Na telefonach jedno zdjęcie na raz */
-    }
-
-    .carousel-btn {
-        width: 35px; /* Jeszcze mniejsze strzałki na telefonach */
-        height: 35px;
-        font-size: 1.2rem; /* Mniejszy rozmiar strzałek */
-    }
-
-    .carousel-description {
-        font-size: 12px; /* Mniejszy rozmiar podpisów na małych ekranach */
-    }
-}
-
-/* Pozycja strzałek */
-.carousel-btn.prev {
-    left: 10px; /* Zmniejszono margines z lewej strony */
-}
-
-.carousel-btn.next {
-    right: 10px; /* Zmniejszono margines z prawej strony */
-}
-
-.carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Kolor strzałek po najechaniu */
-}
-
-.carousel-btn:focus {
-    outline: none;
-}
-
-/* Stylizacja linii dzielącej */
-.divider {
-    border: 1px solid #ff69b4;
-    margin: 30px 0;
 }
 
 /* Sekcja z tekstem na dole strony */
@@ -177,44 +119,44 @@
     text-align: center;
     font-size: 18px;
     padding: 20px;
-    background-color: white;
+    background-color:white;
     color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-/* Kontener na muzykę */
+/* Stylizacja muzyki */
 .music-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    max-width: 900px; /* Maksymalna szerokość dla lepszej responsywności */
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
-/* Odtwarzacze muzyki */
 .music-player {
     width: 45%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
     text-align: center;
 }
 
-/* Stylizacja dla elementów audio */
-audio {
+.music-player audio {
     width: 100%;
-    margin-top: 10px;
-    border-radius: 10px;
 }
 
-/* Pozycjonowanie elementów na mniejszych ekranach */
-@media screen and (max-width: 768px) {
-    .music-container {
-        flex-direction: column; /* Na mniejszych ekranach wyświetlaj odtwarzacze w pionie */
-        align-items: center;
-    }
+/* Stylizacja nagłówka */
+header {
+    background-color: #ff69b4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-    .music-player {
-        width: 80%; /* Na mniejszych ekranach odtwarzacze będą szersze */
-        margin-bottom: 20px;
-    }
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Stylizacja linii dzielącej */
+.divider {
+    border: 1px solid #ff69b4;
+    margin: 30px 0;
 }
