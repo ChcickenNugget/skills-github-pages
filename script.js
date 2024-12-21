@@ -13,20 +13,7 @@ const prevButton = document.getElementById('prev-btn');
 const nextButton = document.getElementById('next-btn');
 
 let currentIndex = 0;
-let slidesToShow = 5; // Domyślna liczba zdjęć na stronie (komputer)
-
-// Funkcja do ustawienia liczby zdjęć wyświetlanych na stronie w zależności od szerokości okna
-function updateSlidesToShow() {
-    if (window.innerWidth >= 1200) {
-        slidesToShow = 5;
-    } else if (window.innerWidth >= 768) {
-        slidesToShow = 4;
-    } else if (window.innerWidth >= 480) {
-        slidesToShow = 2;
-    } else {
-        slidesToShow = 2;
-    }
-}
+const slidesToShow = 5; // Liczba zdjęć na raz
 
 // Funkcja ustawiania przesunięcia
 function setSlidePosition(index) {
@@ -52,14 +39,7 @@ prevButton.addEventListener('click', () => {
 });
 
 // Inicjalizacja pozycji
-updateSlidesToShow();
 setSlidePosition(currentIndex);
-
-// Nasłuchuj na zmianę rozdzielczości, aby dostosować liczbę widocznych zdjęć
-window.addEventListener('resize', () => {
-    updateSlidesToShow();
-    setSlidePosition(currentIndex);
-});
 
 // Mechanizm lightboxa
 const lightbox = document.getElementById('lightbox');
