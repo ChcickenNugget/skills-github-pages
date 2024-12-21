@@ -61,3 +61,31 @@ window.addEventListener('resize', () => {
 
 // Na początek ustawiamy odpowiednią liczbę zdjęć na podstawie rozmiaru okna
 updateSlidesToShow();
+
+// Mechanizm lightboxa (powiększania zdjęcia po kliknięciu)
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxDescription = document.getElementById('lightbox-description');
+const closeBtn = document.getElementById('close-btn');
+const images = document.querySelectorAll('.carousel-image');
+
+images.forEach(img => {
+    img.addEventListener('click', (e) => {
+        const clickedImage = e.target;
+        lightboxImg.src = clickedImage.src;
+        lightboxDescription.textContent = clickedImage.nextElementSibling.textContent; // Pobierz tekst z podpisu
+        lightbox.style.display = 'flex';
+    });
+});
+
+// Zamknięcie lightboxa
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+// Zamknięcie lightboxa klikając poza obrazem
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+});
