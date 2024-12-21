@@ -161,32 +161,20 @@ h1 {
     margin: 30px 0;
 }
 
-/* Media Queries */
-
-/* Na ekranach powyżej 1200px, 5 zdjęć na ekranie */
-@media screen and (min-width: 1200px) {
-    .carousel-slide {
-        min-width: 20%; /* 5 zdjęć na ekranie */
-    }
-}
-
-/* Na ekranach od 768px do 1200px, 4 zdjęcia na ekranie */
-@media screen and (max-width: 1200px) and (min-width: 768px) {
-    .carousel-slide {
-        min-width: 25%; /* 4 zdjęcia na ekranie */
-    }
-}
-
-/* Na ekranach od 480px do 768px, 2 zdjęcia na ekranie */
-@media screen and (max-width: 768px) and (min-width: 480px) {
-    .carousel-slide {
-        min-width: 50%; /* 2 zdjęcia na ekranie */
-    }
-}
-
-/* Na telefonach do 480px, 2 zdjęcia na ekranie */
+/* Media Queries - Zmniejszenie zdjęcia w lightboxie na telefonach */
 @media screen and (max-width: 480px) {
+    .lightbox img {
+        max-width: 70%; /* Zmniejszenie zdjęcia do 70% na telefonach */
+        max-height: 70%; /* Zmniejszenie wysokości zdjęcia na telefonach */
+    }
+
     .carousel-slide {
-        min-width: 50%; /* 2 zdjęcia na ekranie */
+        min-width: 50%; /* Na telefonach 2 zdjęcia na raz */
+    }
+
+    .carousel-btn {
+        width: 40px; /* Mniejsze strzałki na mniejszych ekranach */
+        height: 40px;
+        font-size: 1.5rem; /* Mniejszy rozmiar strzałek */
     }
 }
