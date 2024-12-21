@@ -13,7 +13,7 @@ const prevButton = document.getElementById('prev-btn');
 const nextButton = document.getElementById('next-btn');
 
 let currentIndex = 0;
-const slidesToShow = 5; // Liczba zdjęć na raz
+let slidesToShow = 5; // Domyślnie 5 zdjęć na raz
 
 // Funkcja ustawiania przesunięcia
 function setSlidePosition(index) {
@@ -21,6 +21,18 @@ function setSlidePosition(index) {
     const offset = -index * slideWidth;
     track.style.transform = `translateX(${offset}px)`;
 }
+
+// Funkcja, która dynamicznie ustawia liczbę zdjęć wyświetlanych na ekranie
+const updateSlidesToShow = () => {
+    const width = window.innerWidth;
+    if (width <= 480) {
+        slidesToShow = 2; // 2 zdjęcia na telefonach
+    } else if (width <= 768) {
+        slidesToShow = 2; // 2 zdjęcia na tabletach
+    } else {
+        slidesToShow = 5; // 5 zdjęć na komputerach
+    }
+};
 
 // Obsługa przycisku "następny"
 nextButton.addEventListener('click', () => {
@@ -41,30 +53,11 @@ prevButton.addEventListener('click', () => {
 // Inicjalizacja pozycji
 setSlidePosition(currentIndex);
 
-// Mechanizm lightboxa
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxDescription = document.getElementById('lightbox-description');
-const closeBtn = document.getElementById('close-btn');
-const images = document.querySelectorAll('.carousel-image');
-
-images.forEach(img => {
-    img.addEventListener('click', (e) => {
-        const clickedImage = e.target;
-        lightboxImg.src = clickedImage.src;
-        lightboxDescription.textContent = clickedImage.nextElementSibling.textContent; // Pobierz tekst z podpisu
-        lightbox.style.display = 'flex';
-    });
+// Aktualizacja liczby zdjęć na stronie po zmianie rozmiaru okna
+window.addEventListener('resize', () => {
+    updateSlidesToShow();
+    setSlidePosition(currentIndex); // Dopasuj pozycję po zmianie rozmiaru
 });
 
-// Zamknięcie lightboxa
-closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
-
-// Zamknięcie lightboxa klikając poza obrazem
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        lightbox.style.display = 'none';
-    }
-});
+// Na początek ustawiamy odpowiednią liczbę zdjęć na podstawie rozmiaru okna
+updateSlidesToShow();
