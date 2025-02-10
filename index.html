@@ -2,114 +2,122 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesteś piękna!</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bądź moją Walentynką! 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6f2;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        .yes:hover {
+            background-color: #ff1a66;
+        }
+        .no {
+            background-color: #ddd;
+            color: black;
+            position: absolute;
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #ff4081;
+        }
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            animation: fall 3s infinite linear;
+        }
+        @keyframes fall {
+            0% { transform: translateX(-50%) translateY(-100px); }
+            100% { transform: translateX(-50%) translateY(100vh); }
+        }
+        .heart-image {
+            width: 200px;
+            height: 200px;
+            background: url('IMG_1911.JPG') no-repeat center/cover;
+            clip-path: path('M 100,30 A 45,45 0 0,1 190,30 Q 190,90 100,180 Q 10,90 10,30 A 45,45 0 0,1 100,30 Z');
+            display: block;
+            margin: 20px auto;
+        }
+        @media screen and (max-width: 600px) {
+            .heart-image {
+                width: 150px;
+                height: 150px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            button {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Nagłówek -->
-<header>
-    <h1>Jesteś piękna i wyjątkowa!</h1>
-    <p>Nigdy nie zapominaj, jak bardzo jesteś dla mnie ważna.</p>
-</header>
-
-<!-- Karuzela -->
-<div class="carousel">
-    <button class="carousel-btn prev" id="prev-btn">&#8249;</button>
-    <div class="carousel-track-container">
-        <ul class="carousel-track">
-            <!-- Zdjęcie 1 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie1.JPG" alt="Zdjęcie 1" data-index="0">
-                <p class="carousel-description">Twoje serce jest pełne ciepła i miłości.</p>
-            </li>
-            <!-- Zdjęcie 2 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie2.JPG" alt="Zdjęcie 2" data-index="1">
-                <p class="carousel-description">Każdy dzień z Tobą to prezent.</p>
-            </li>
-            <!-- Zdjęcie 3 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie3.JPG" alt="Zdjęcie 3" data-index="2">
-                <p class="carousel-description">Uśmiechaj się, bo to Twoje największe piękno.</p>
-            </li>
-            <!-- Zdjęcie 4 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie4.JPG" alt="Zdjęcie 4" data-index="3">
-                <p class="carousel-description">Twój urok jest nieporównywalny z niczym.</p>
-            </li>
-            <!-- Zdjęcie 5 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie5.JPG" alt="Zdjęcie 5" data-index="4">
-                <p class="carousel-description">Za każdym Twoim krokiem idzie magia.</p>
-            </li>
-            <!-- Zdjęcie 6 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie6.JPG" alt="Zdjęcie 6" data-index="5">
-                <p class="carousel-description">Twoje serce tętni życiem, które inspiruje.</p>
-            </li>
-            <!-- Zdjęcie 7 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie7.JPG" alt="Zdjęcie 7" data-index="6">
-                <p class="carousel-description">Z Tobą każdy dzień jest pełen radości.</p>
-            </li>
-            <!-- Zdjęcie 8 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie8.JPG" alt="Zdjęcie 8" data-index="7">
-                <p class="carousel-description">Piękno nie zna granic, gdy jesteś blisko.</p>
-            </li>
-            <!-- Zdjęcie 9 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęcie9.JPG" alt="Zdjęcie 9" data-index="8">
-                <p class="carousel-description">Tylko z Tobą życie jest pełne harmonii.</p>
-            </li>
-            <!-- Zdjęcie 10 -->
-            <li class="carousel-slide">
-                <img class="carousel-image" src="image/zdjęie10.JPG" alt="Zdjęcie 10" data-index="9">
-                <p class="carousel-description">Każdy Twój uśmiech sprawia, że świat staje się piękniejszy.</p>
-            </li>
-        </ul>
+<div class="container">
+    <h1>Czy zostaniesz moją Walentynką? 💖</h1>
+    <div class="heart-image"></div>
+    <div class="buttons">
+        <button class="yes" onclick="showMessage()">Tak! 💕</button>
+        <button class="no" onmouseover="moveButton()">Nie 😢</button>
     </div>
-    <button class="carousel-btn next" id="next-btn">&#8250;</button>
+    <div class="hidden-message" id="message">Yay! Jesteś najlepsza! Bardzo mocno cię Kocham Skarbie Jesteś dla mnie bardzo ważna Karolinka💖🎉</div>
 </div>
+<script>
+    function showMessage() {
+        document.getElementById('message').style.display = 'block';
+        createHearts();
+    }
 
-<!-- Lightbox (powiększone zdjęcie) -->
-<div id="lightbox" class="lightbox">
-    <span class="close" id="close-btn">&times;</span>
-    <img id="lightbox-img" src="" alt="">
-    <p id="lightbox-description"></p>
-</div>
+    function moveButton() {
+        let button = document.querySelector('.no');
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 100);
+        button.style.left = x + 'px';
+        button.style.top = y + 'px';
+    }
 
-<!-- Linia dzieląca -->
-<hr class="divider">
-
-<!-- Sekcja z tekstem na dole strony -->
-<section class="footer-description">
-    <p>Chciałem, abyś wiedziała, że Twoja obecność w moim życiu ma ogromne znaczenie...</p>
-    <p>Jesteś dla mnie kimś nieocenionym, a każda chwila z Tobą to najpiękniejszy moment mojego życia.</p>
-    <p>Nie zapominaj, jak wiele dla mnie znaczysz i jak bardzo Cię kocham.</p>
-</section>
-
-<!-- Dodanie odtwarzaczy audio na dole strony -->
-<div class="music-container">
-    <div class="music-player left">
-        <p>Tatuażyk:</p>
-        <audio controls>
-            <source src="audio/Tatuażyk.mp3" type="audio/mp3">
-            Twój przeglądarka nie obsługuje elementu audio.
-        </audio>
-    </div>
-
-    <div class="music-player right">
-        <p>Kosmos:</p>
-        <audio controls>
-            <source src="audio/KOSMOS.mp3" type="audio/mp3">
-            Twój przeglądarka nie obsługuje elementu audio.
-        </audio>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    function createHearts() {
+        for (let i = 0; i < 10; i++) {
+            let heart = document.createElement("div");
+            heart.classList.add("hearts");
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+    }
+</script>
 </body>
 </html>
